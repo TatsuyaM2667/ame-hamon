@@ -1,4 +1,4 @@
-# ame-spectrum
+# ame-hamon
 
 今鳴っている音のスペクトラムを 1 行ずつ流す小さなコマンド(Odin。cava の代わり)。
 
@@ -8,9 +8,10 @@ ame-shell は画面の要らない仕事を、1 つのことをして標準入�
 ## 使い方
 
 ```text
-ame-spectrum: 今鳴っている音を周波数ごとの棒の高さにして、1 行ずつ流す(cava の代わり)。
+ame-hamon: 今鳴っている音を周波数ごとの棒の高さにして、1 行ずつ流す(cava の代わり)。
+名前は波紋(はもん)から。雨粒が水面に広げる輪のように、音を広げて見せる。
 
-  ame-spectrum [-b 本数]     1 行 = 棒の高さ(0〜1000)を ';' でつないだもの(cava の raw ascii と同じ形)
+  ame-hamon [-b 本数]     1 行 = 棒の高さ(0〜1000)を ';' でつないだもの(cava の raw ascii と同じ形)
 
 音は PulseAudio の録音の口(PipeWire なら pipewire-pulse)の @DEFAULT_MONITOR@ から、libpulse-simple を実行時に読んで取る。
 計算: 窓をかけて FFT(anim/fft.odin。ame-shell と同じもの)、50Hz〜12kHz を対数で分け、dB にして最近の大きい音で
@@ -22,7 +23,7 @@ ame-spectrum: 今鳴っている音を周波数ごとの棒の高さにして、
 ## ビルド
 
 ```sh
-sh build.sh   # ./ame-spectrum(Odin dev-2026-08 以降。libpulse などは実行時に読むので、ヘッダも -dev パッケージも要らない)
+sh build.sh   # ./ame-hamon(Odin dev-2026-08 以降。libpulse などは実行時に読むので、ヘッダも -dev パッケージも要らない)
 odin test .
 ```
 
@@ -30,7 +31,7 @@ odin test .
 
 ## このリポジトリについて
 
-正本は ame-shell の `odin/ame-spectrum/main.odin` です。このリポジトリは `scripts/split-repos.sh` が生成して同期しています。
+正本は ame-shell の `odin/ame-hamon/main.odin` です。このリポジトリは `scripts/split-repos.sh` が生成して同期しています。
 直したいところがあれば ame-shell の方へお願いします。
 
 ライセンス: GPL-3.0(ame-shell と同じ)
